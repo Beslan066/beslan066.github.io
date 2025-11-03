@@ -33,6 +33,13 @@
             transition: transform 0.2s;
         }
 
+        .content-item video {
+            max-width: 350px;
+            margin-right: 20px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
         .content-item img:hover {
             transform: scale(1.02);
         }
@@ -332,9 +339,8 @@
                                         <div id="nested-collapse-two-1" class="accordion-collapse collapse"
                                             data-bs-parent="#nestedAccordionTwo">
                                             <div class="accordion-body">
-                                                <div class="content-item">
-                                                    <h5>Устная речь</h5>
-                                                    <p>Устная речь - это речь, произносимая вслух.</p>
+                                                <div class="content-item" style="display: flex; flex-wrap: wrap;">
+                                                    <video src="../img/1/2/2.1/1.webm" poster="../img/1/2/2.1/1.png" controls muted></video>
                                                 </div>
                                             </div>
                                         </div>
@@ -352,10 +358,28 @@
                                         <div id="nested-collapse-two-2" class="accordion-collapse collapse"
                                             data-bs-parent="#nestedAccordionTwo">
                                             <div class="accordion-body">
-                                                <div class="content-item">
-                                                    <h5>Письменная речь</h5>
-                                                    <p>Письменная речь - это речь, зафиксированная на бумаге или
-                                                        электронном носителе.</p>
+                                                <div class="content-item" style="display: flex; flex-wrap: wrap;">
+                                                    <img src="../img/1/2/2.2/1.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                    <img src="../img/1/2/2.2/2.png" alt="Изображение 2"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                    <img src="../img/1/2/2.2/3.png" alt="Изображение 3"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                    <img src="../img/1/2/2.2/4.png" alt="Изображение 4"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                    <img src="../img/1/2/2.2/5.png" alt="Изображение 5"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/1/2/2.2/5.png" alt="Изображение 5"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/1/2/2.2/5.png" alt="Изображение 5"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
                                                 </div>
                                             </div>
                                         </div>
