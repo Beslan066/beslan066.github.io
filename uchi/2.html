@@ -7,108 +7,647 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Document</title>
+    <style>
+        .nested-accordion .accordion-button {
+            background-color: #f8f9fa;
+            padding: 0.75rem 1rem;
+        }
+
+        .nested-accordion .accordion-body {
+            padding: 1rem;
+            background-color: white;
+        }
+
+        .content-item {
+            padding: 1rem;
+            border-left: 3px solid #1BAA7D;
+            background-color: #f8f9fa;
+            margin-bottom: 0.5rem;
+            border-radius: 0 0.375rem 0.375rem 0;
+        }
+
+        .content-item img {
+            max-width: 350px;
+            margin-right: 20px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .content-item video {
+            max-width: 350px;
+            margin-right: 20px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .content-item img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Стили для модального окна с изображением */
+        .modal-image {
+            max-width: 100%;
+            max-height: 80vh;
+            width: auto;
+            height: auto;
+        }
+
+        .modal-content {
+            background-color: transparent;
+            border: none;
+        }
+
+        .modal-header {
+            border-bottom: none;
+            padding: 0.5rem 1rem;
+        }
+
+        .modal-header .btn-close {
+            background-color: white;
+            opacity: 1;
+            padding: 0.5rem;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
         <main class="container">
-            <div class="d-flex align-items-center p-3 my-3 text-white bg-purple  shadow-sm" style="background-color: #1BAA7D; height: 100px;">
+            <div class="d-flex align-items-center p-3 my-3 text-white bg-purple  shadow-sm"
+                style="background-color: #1BAA7D; height: 100px;">
                 <a href="/">
                     <img class="me-3" src="../img/Logo.svg" alt="">
                 </a>
             </div>
 
-             <div class="container p-4 bg-light">
-            <h1 class="text-3xl font-bold underline mb-4">
-                1 класс - разделы
-            </h1>
-            <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="container p-4 bg-light">
+                <h1 class="text-3xl font-bold underline mb-4">
+                    Разделы - модуль 2
+                </h1>
+
+
                 <div class="accordion-item rounded-3 border-0 shadow mb-2">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button border-bottom collapsed fw-semibold text-success fw-bold" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
-                            aria-controls="flush-collapseOne">
-                            Речь
-                        </button>
-                    </h2>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse"
-                        data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">
-                            <ul>
-                                <li>Речь и язык</li>
-                                <li>Виды речи</li>
-                                <li>Книжная и разговорная речь. Диалог</li>
-                            </ul>
+                        <h2 class="accordion-header">
+                            <button class="accordion-button border-bottom collapsed fw-semibold" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                aria-controls="flush-collapseTwo">
+                                Что такое предложение?
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body p-0">
+                                <!-- Вложенный аккордион для второго раздела -->
+                                <div class="accordion accordion-flush nested-accordion" id="nestedAccordionTwo">
+                                    <div class="accordion-item border-0">
+                                        <h3 class="accordion-header">
+                                            <button class="accordion-button collapsed fw-semibold" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#nested-collapse-two-1"
+                                                aria-expanded="false" aria-controls="nested-collapse-two-1">
+                                                <img src="" alt="" class="me-2">
+                                                <span>Собираем предложение</span>
+                                            </button>
+                                        </h3>
+                                        <div id="nested-collapse-two-1" class="accordion-collapse collapse"
+                                            data-bs-parent="#nestedAccordionOne">
+                                            <div class="accordion-body">
+                                                <div class="content-item" style="display: flex; flex-wrap: wrap;">
+                                                    <img src="../img/2/1/1/1.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                    <img src="../img/2/1/1/2.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/1/3.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/1/4.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/1/5.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/1/6.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/1/7.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/1/8.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/1/9.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/1/10.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/1/11.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/1/12.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/1/13.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/1/14.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/1/15.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/1/16.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/1/17.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/1/18.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/1/19.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/1/20.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/1/21.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-item border-0">
+                                        <h3 class="accordion-header">
+                                            <button class="accordion-button collapsed fw-semibold" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#nested-collapse-two-2"
+                                                aria-expanded="false" aria-controls="nested-collapse-two-2">
+                                                <img src="" alt="" class="me-2">
+                                                <span>Составляем схему предложения</span>
+                                            </button>
+                                        </h3>
+                                        <div id="nested-collapse-two-2" class="accordion-collapse collapse"
+                                            data-bs-parent="#nestedAccordionTwo">
+                                            <div class="accordion-body">
+                                                <div class="content-item" style="display: flex; flex-wrap: wrap;">
+                                                    <img src="../img/2/1/2/1.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                    <img src="../img/2/1/2/2.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/2/3.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/2/4.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/2/5.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/2/6.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/2/7.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/2/8.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-item border-0">
+                                        <h3 class="accordion-header">
+                                            <button class="accordion-button collapsed fw-semibold" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#nested-collapse-two-3"
+                                                aria-expanded="false" aria-controls="nested-collapse-two-3">
+                                                <img src="" alt="" class="me-2">
+                                                <span>Ставим знаки в конце предложения</span>
+                                            </button>
+                                        </h3>
+                                        <div id="nested-collapse-two-3" class="accordion-collapse collapse"
+                                            data-bs-parent="#nestedAccordion3">
+                                             <div class="accordion-body">
+                                                <div class="content-item" style="display: flex; flex-wrap: wrap;">
+                                                    <img src="../img/2/1/3/1.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                    <img src="../img/2/1/3/2.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/3/3.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/3/4.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/3/5.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/3/6.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/3/7.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/3/8.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/3/9.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/3/10.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-item border-0">
+                                        <h3 class="accordion-header">
+                                            <button class="accordion-button collapsed fw-semibold" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#nested-collapse-two-4"
+                                                aria-expanded="false" aria-controls="nested-collapse-two-4">
+                                                <img src="" alt="" class="me-2">
+                                                <span>Учим словарные слова</span>
+                                            </button>
+                                        </h3>
+                                        <div id="nested-collapse-two-4" class="accordion-collapse collapse"
+                                            data-bs-parent="#nestedAccordionTwo">
+                                            <div class="accordion-body">
+                                                <div class="content-item" style="display: flex; flex-wrap: wrap;">
+                                                    <img src="../img/2/1/4/1.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                    <img src="../img/2/1/4/2.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/1/4/3.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="accordion-item rounded-3 border-0 shadow mb-2">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button border-bottom collapsed fw-semibold" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                            aria-controls="flush-collapseTwo">
-                            Bootstrap Accordion #2
-                        </button>
-                    </h2>
-                    <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                        data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">
-                            <p>Please check our more latest Design @<a
-                                    href="https://codepen.io/Gaurav-Rana-the-reactor">Codepen</a></p>
+
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item rounded-3 border-0 shadow mb-2">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button border-bottom collapsed text-black"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                aria-expanded="false" aria-controls="flush-collapseOne">
+                                Что такое текст?
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body p-0">
+                                <!-- Вложенный аккордион -->
+                                <div class="accordion accordion-flush nested-accordion" id="nestedAccordionOne">
+                                    <div class="accordion-item border-0">
+                                        <h3 class="accordion-header">
+                                            <button class="accordion-button collapsed fw-semibold" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#nested-collapse-one-1"
+                                                aria-expanded="false" aria-controls="nested-collapse-one-1">
+                                                <img src="" alt="" class="me-2">
+                                                <span>Составляем текст</span>
+                                            </button>
+                                        </h3>
+                                        <div id="nested-collapse-one-1" class="accordion-collapse collapse"
+                                            data-bs-parent="#nestedAccordionOne">
+                                            <div class="accordion-body">
+                                                <div class="content-item" style="display: flex; flex-wrap: wrap;">
+                                                    <img src="../img/2/2/1/1.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                    <img src="../img/2/2/1/2.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                    <img src="../img/2/2/1/3.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+
+                                                        <img src="../img/2/2/1/4.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/2/1/5.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/2/1/6.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/2/1/7.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-item border-0">
+                                        <h3 class="accordion-header">
+                                            <button class="accordion-button collapsed fw-semibold" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#nested-collapse-one-2"
+                                                aria-expanded="false" aria-controls="nested-collapse-one-2">
+                                                <img src="" alt="" class="me-2">
+                                                <span>Текст или не текст?</span>
+                                            </button>
+                                        </h3>
+                                        <div id="nested-collapse-one-2" class="accordion-collapse collapse"
+                                            data-bs-parent="#nestedAccordionOne">
+                                            <div class="accordion-body">
+                                                <div class="content-item" style="display: flex; flex-wrap: wrap;">
+                                                    <img src="../img/2/2/2/1.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                    <img src="../img/2/2/2/2.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-item border-0">
+                                        <h3 class="accordion-header">
+                                            <button class="accordion-button collapsed fw-semibold" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#nested-collapse-one-3"
+                                                aria-expanded="false" aria-controls="nested-collapse-one-3">
+                                                <img src="" alt="" class="me-2">
+                                                <span>Находим границы предложения</span>
+                                            </button>
+                                        </h3>
+                                        <div id="nested-collapse-one-3" class="accordion-collapse collapse"
+                                            data-bs-parent="#nestedAccordionOne">
+                                            <div class="accordion-body">
+                                                <div class="content-item" style="display: flex; flex-wrap: wrap;">
+                                                    <img src="../img/2/2/3/1.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                    <img src="../img/2/2/3/2.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+
+                                                        <img src="../img/2/2/3/3.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-item border-0">
+                                        <h3 class="accordion-header">
+                                            <button class="accordion-button collapsed fw-semibold" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#nested-collapse-one-4"
+                                                aria-expanded="false" aria-controls="nested-collapse-one-4">
+                                                <img src="" alt="" class="me-2">
+                                                <span>Составляем текст с помощью предложе...</span>
+                                            </button>
+                                        </h3>
+                                        <div id="nested-collapse-one-4" class="accordion-collapse collapse"
+                                            data-bs-parent="#nestedAccordionOne">
+                                            <div class="accordion-body">
+                                                <div class="content-item" style="display: flex; flex-wrap: wrap;">
+                                                     <img src="../img/2/2/4/1.png" alt="Изображение 2"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                    <img src="../img/2/2/4/2.png" alt="Изображение 2"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/2/4/3.png" alt="Изображение 2"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-item border-0">
+                                        <h3 class="accordion-header">
+                                            <button class="accordion-button collapsed fw-semibold" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#nested-collapse-one-5"
+                                                aria-expanded="false" aria-controls="nested-collapse-one-5">
+                                                <img src="" alt="" class="me-2">
+                                                <span>Учим словарные слова</span>
+                                            </button>
+                                        </h3>
+                                        <div id="nested-collapse-one-5" class="accordion-collapse collapse"
+                                            data-bs-parent="#nestedAccordionOne">
+                                            <div class="accordion-body">
+                                                 <div class="content-item" style="display: flex; flex-wrap: wrap;">
+                                                     <img src="../img/2/2/5/1.png" alt="Изображение 2"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                    <img src="../img/2/2/5/2.png" alt="Изображение 2"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/2/5/3.png" alt="Изображение 2"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="accordion-item rounded-3 border-0 mb-2 shadow">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button border-bottom collapsed fw-semibold" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false"
-                            aria-controls="flush-collapseThree">
-                            Bootstrap Accordion #3
-                        </button>
-                    </h2>
-                    <div id="flush-collapseThree" class="accordion-collapse collapse"
-                        data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">
-                            <p>Please check our more latest Design @ <a
-                                    href="https://codepen.io/Gaurav-Rana-the-reactor">Codepen</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item rounded-3 border-0 mb-2 shadow">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button border-bottom collapsed fw-semibold" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#flush-collapse4" aria-expanded="false"
-                            aria-controls="flush-collapse4">
-                            Bootstrap Accordion #3
-                        </button>
-                    </h2>
-                    <div id="flush-collapse4" class="accordion-collapse collapse"
-                        data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">
-                            <p>Please check our more latest Design @ <a
-                                    href="https://codepen.io/Gaurav-Rana-the-reactor">Codepen</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item rounded-3 border-0 mb-2 shadow">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button border-bottom collapsed fw-semibold" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#flush-collapse5" aria-expanded="false"
-                            aria-controls="flush-collapse5">
-                            Bootstrap Accordion #3
-                        </button>
-                    </h2>
-                    <div id="flush-collapse5" class="accordion-collapse collapse"
-                        data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">
-                            <p>Please check our more latest Design @ <a
-                                    href="https://codepen.io/Gaurav-Rana-the-reactor">Codepen</a></p>
+
+                
+
+                    <div class="accordion-item rounded-3 border-0 mb-2 shadow">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button border-bottom collapsed fw-semibold" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                aria-controls="flush-collapseThree">
+                                Части текста
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body p-0">
+                                <!-- Вложенный аккордион -->
+                                <div class="accordion accordion-flush nested-accordion" id="nestedAccordionOne">
+                                    <div class="accordion-item border-0">
+                                        <h3 class="accordion-header">
+                                            <button class="accordion-button collapsed fw-semibold" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#nested-collapse-one-1"
+                                                aria-expanded="false" aria-controls="nested-collapse-one-1">
+                                                <img src="" alt="" class="me-2">
+                                                <span>Выделяем части текста</span>
+                                            </button>
+                                        </h3>
+                                        <div id="nested-collapse-one-1" class="accordion-collapse collapse"
+                                            data-bs-parent="#nestedAccordionOne">
+                                            <div class="accordion-body">
+                                                <div class="content-item" style="display: flex; flex-wrap: wrap;">
+                                                    <img src="../img/2/3/1/1.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                    <img src="../img/2/3/1/2.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                    <img src="../img/2/3/1/3.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+
+                                                        <img src="../img/2/3/1/4.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/3/1/5.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/3/1/6.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/3/1/7.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        <img src="../img/2/3/1/8.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-item border-0">
+                                        <h3 class="accordion-header">
+                                            <button class="accordion-button collapsed fw-semibold" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#nested-collapse-one-2"
+                                                aria-expanded="false" aria-controls="nested-collapse-one-2">
+                                                <img src="" alt="" class="me-2">
+                                                <span>Учимся писать с красной строки</span>
+                                            </button>
+                                        </h3>
+                                        <div id="nested-collapse-one-2" class="accordion-collapse collapse"
+                                            data-bs-parent="#nestedAccordionOne">
+                                            <div class="accordion-body">
+                                                <div class="content-item" style="display: flex; flex-wrap: wrap;">
+                                                    <img src="../img/2/3/2/1.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                    <img src="../img/2/3/2/2.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-item border-0">
+                                        <h3 class="accordion-header">
+                                            <button class="accordion-button collapsed fw-semibold" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#nested-collapse-one-3"
+                                                aria-expanded="false" aria-controls="nested-collapse-one-3">
+                                                <img src="" alt="" class="me-2">
+                                                <span>Находим части текста</span>
+                                            </button>
+                                        </h3>
+                                        <div id="nested-collapse-one-3" class="accordion-collapse collapse"
+                                            data-bs-parent="#nestedAccordionOne">
+                                            <div class="accordion-body">
+                                                <div class="content-item" style="display: flex; flex-wrap: wrap;">
+                                                    <img src="../img/2/3/3/1.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                    <img src="../img/2/3/3/2.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+
+                                                    <img src="../img/2/3/3/3.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+
+                                                    <img src="../img/2/3/3/4.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+
+                                                    <img src="../img/2/3/3/5.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+
+                                                    <img src="../img/2/3/3/6.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+
+                                                    <img src="../img/2/3/3/7.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                        
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-item border-0">
+                                        <h3 class="accordion-header">
+                                            <button class="accordion-button collapsed fw-semibold" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#nested-collapse-one-5"
+                                                aria-expanded="false" aria-controls="nested-collapse-one-5">
+                                                <img src="" alt="" class="me-2">
+                                                <span>Учим словарные слова</span>
+                                            </button>
+                                        </h3>
+                                        <div id="nested-collapse-one-5" class="accordion-collapse collapse"
+                                            data-bs-parent="#nestedAccordionOne">
+                                            <div class="accordion-body">
+                                                 <div class="content-item" style="display: flex; flex-wrap: wrap;">
+                                                     <img src="../img/2/3/4/1.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+
+                                                        <img src="../img/2/3/4/2.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+
+                                                        <img src="../img/2/3/4/3.png" alt="Изображение 1"
+                                                        data-bs-toggle="modal" data-bs-target="#imageModal"
+                                                        onclick="openModal(this)">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         </main>
+    </div>
+
+    <!-- Модальное окно для полноэкранного просмотра изображений -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="modalImage" src="" alt="" class="modal-image">
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
@@ -117,6 +656,31 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
+
+    <script>
+        function openModal(imgElement) {
+            // Устанавливаем источник изображения в модальном окне
+            document.getElementById('modalImage').src = imgElement.src;
+            document.getElementById('modalImage').alt = imgElement.alt;
+        }
+
+        // Дополнительно: возможность закрывать модальное окно по клику на изображение
+        document.getElementById('modalImage').addEventListener('click', function () {
+            var modal = bootstrap.Modal.getInstance(document.getElementById('imageModal'));
+            modal.hide();
+        });
+
+        // Дополнительно: навигация стрелками клавиатуры
+        document.addEventListener('keydown', function (event) {
+            var modal = document.getElementById('imageModal');
+            if (modal.classList.contains('show')) {
+                if (event.key === 'Escape') {
+                    var bsModal = bootstrap.Modal.getInstance(modal);
+                    bsModal.hide();
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
